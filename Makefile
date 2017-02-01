@@ -1,9 +1,3 @@
-.PHONY: all
-all: build
-
-.PHONY: ci
-ci: build
-
 # INSTALL ######################################################################
 
 VENDOR_DIR := ./node_modules
