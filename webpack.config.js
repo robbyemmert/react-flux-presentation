@@ -2,13 +2,14 @@
 
 var path = require("path");
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: "source-map",
   entry: [
     "webpack-hot-middleware/client",
     "babel-polyfill",
-    "./index"
+    "./src/index"
   ],
   output: {
     path: path.join(__dirname, "dist"),
@@ -17,7 +18,10 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({        // Plugin to inject source references into index.html (note: doesn't need handlebars)
+      template: './src/index.html'
+    })
   ],
   module: {
     loaders: [{

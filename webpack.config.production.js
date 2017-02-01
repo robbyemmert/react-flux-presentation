@@ -2,11 +2,12 @@
 
 var path = require("path");
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
     "babel-polyfill",
-    "./index"
+    "./src/index"
   ],
   output: {
     path: path.join(__dirname, "dist"),
@@ -23,6 +24,9 @@ module.exports = {
       compressor: {
         warnings: false
       }
+    }),
+    new HtmlWebpackPlugin({        // Plugin to inject source references into index.html (note: doesn't need handlebars)
+      template: './src/index.html'
     })
   ],
   module: {
