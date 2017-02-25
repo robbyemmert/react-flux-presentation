@@ -40,7 +40,8 @@ const theme = createTheme({
   primary: "white",
   secondary: "#1F2022",
   tertiary: "#03A9FC",
-  quartenary: "#CECECE"
+  quartenary: "#CECECE",
+  pentiary: "#878a92"
 }, {
   primary: "Montserrat",
   secondary: "Helvetica"
@@ -71,6 +72,19 @@ export default class Presentation extends React.Component {
             </Cite>
           </BlockQuote>
           <Image src={images.fluxDiagram} width="100%" />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="pentiary">
+          <Heading size={2} fit cap lineHeight={1}>
+            It's not new
+          </Heading>
+          <BlockQuote>
+            <Quote textSize="16">
+              ...publish–subscribe is a messaging pattern where senders of messages, called publishers, do not program the messages to be sent directly to specific receivers, called subscribers, but instead characterize published messages into classes without knowledge of which subscribers, if any, there may be. Similarly, subscribers express interest in one or more classes and only receive messages that are of interest, without knowledge of which publishers, if any, there are.
+            </Quote>
+            <Cite>
+              Wikipedia
+            </Cite>
+          </BlockQuote>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
