@@ -6,7 +6,11 @@ import {
   Deck,
   Slide,
   Heading,
-  Text
+  Text,
+  BlockQuote,
+  Quote,
+  Cite,
+  Image
 } from "spectacle";
 
 // Import image preloader util
@@ -26,7 +30,8 @@ const images = {
   city: require("../assets/city.jpg"),
   kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
+  markdown: require("../assets/markdown.png"),
+  fluxDiagram: require("../assets/flux-simple-f8-diagram-with-client-action-1300w.png")
 };
 
 preloader(images);
@@ -52,6 +57,20 @@ export default class Presentation extends React.Component {
           <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
             Introduction to Reactive Programming on the Web with React.js
           </Text>
+        </Slide>
+        <Slide transition={["fade"]}  bgColor="secondary" textColor="primary">
+          <Heading size={2} fit caps textColor="quartenary">
+            Flux Definition
+          </Heading>
+          <BlockQuote>
+            <Quote textSize="16">
+              Flux eschews MVC in favor of a unidirectional data flow. When a user interacts with a React view, the view propagates an action through a central dispatcher, to the various stores that hold the application's data and business logic, which updates all of the views that are affected.
+            </Quote>
+            <Cite>
+              React Documentation
+            </Cite>
+          </BlockQuote>
+          <Image src={images.fluxDiagram} width="100%" />
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
