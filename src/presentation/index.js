@@ -10,7 +10,12 @@ import {
   BlockQuote,
   Quote,
   Cite,
-  Image
+  Image,
+  Table,
+  TableRow,
+  TableHeaderItem,
+  TableItem,
+  CodePane
 } from "spectacle";
 
 // Import image preloader util
@@ -86,11 +91,71 @@ export default class Presentation extends React.Component {
             </Cite>
           </BlockQuote>
         </Slide>
+        <Slide transition={["fade"]} bgColor="quartenary">
+          <Heading size={2} fit caps>
+            Flux Basics
+          </Heading>
+          <Text>
+            <strong>Store:</strong> Contains application state and logic. Receives events from dispatcher. Determines how state updates.
+          </Text>
+          <Text>
+            <strong>Action:</strong> Identifier and payload to be received by the store.
+          </Text>
+          <Text>
+            <strong>Dispatcher:</strong> A single registry of callbacks. Receives actions. Passes actions to Store.
+          </Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={2} fit caps textColor="quartenary">
+            How React Fits In
+          </Heading>
+          <Text>
+             HTML becomes a product of state.
+          </Text>
+          <Text>
+            Built from components
+          </Text>
+          <Table>
+            <TableRow>
+              <TableHeaderItem>Stateful Components</TableHeaderItem>
+              <TableHeaderItem>Stateless Components</TableHeaderItem>
+            </TableRow>
+            <TableRow>
+              <TableItem>
+                Receive State as properties
+              </TableItem>
+              <TableItem>
+                Render properties
+              </TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem>
+                Render properties
+              </TableItem>
+            </TableRow>
+          </Table>
+        </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Example
           </Heading>
           <FluxExample />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Table>
+            <TableRow>
+              <TableHeaderItem>Stateful Components</TableHeaderItem>
+              <TableHeaderItem>Stateless Components</TableHeaderItem>
+            </TableRow>
+            <TableRow>
+              <TableItem>
+                <CodePane lang="jsx" source={require("raw-loader!./code-examples/stateful-component.example")} textSize="10" />
+              </TableItem>
+              <TableItem>
+                <CodePane lang="jsx" source={require("raw-loader!./code-examples/stateless-component.example")} textSize="10" />
+              </TableItem>
+            </TableRow>
+          </Table>
         </Slide>
       </Deck>
     );
